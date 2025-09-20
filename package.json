@@ -9,6 +9,8 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@fontsource-variable/fredoka": "^5.2.8",
+    "@fontsource-variable/instrument-sans": "^5.2.8",
     "astro": "^5.13.7"
   }
 }
