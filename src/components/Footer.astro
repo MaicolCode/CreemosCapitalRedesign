@@ -1,0 +1,112 @@
+--- 
+---
+
+<footer>
+  <section class="footer-content">
+    <div class="logo_idea">
+      <img src="/CreemosCapitalLogo.png" alt="Logo" width="80" height="80">
+      <h2>Creemos Capital</h2>
+      <p>Converte tu conocimiento en capital y siempre opera con responsabilidad</p>
+    </div>
+    <div class="information">
+      <article>
+        <h2>
+          Contactanos
+        </h2>
+      </article>
+      <p>El contenido de esta pagina web es exclusivamente con fines educativos e informativos y no debe considerarse como asesoramiento financiero, legal o fiscal. El trading y la inversión en los mercados financieros conllevan un alto nivel de riesgo, incluyendo la posibilidad de perder la totalidad del capital invertido. No es adecuado para todos los inversores, y cada persona debe evaluar su tolerancia al riesgo antes de participar en estos mercados.
+        Creemos Capital no garantiza ningún tipo de resultado o rendimiento futuro, y el desempeño pasado no es indicativo de resultados futuros. Todas las decisiones de inversión y trading son responsabilidad exclusiva del usuario.
+        Recuerda: nunca operes con dinero que no puedas permitirte perder y mantén una gestión de riesgo adecuada en cada operación. El trading no es un esquema de enriquecimiento rápido y requiere educación, disciplina y experiencia. Creemos Capital y sus representantes no se hacen responsables por pérdidas derivadas de la aplicación de la información compartida en esta transmisión.
+        Al continuar viendo esta transmisión, aceptas que eres el único responsable de tus decisiones financieras.</p>
+      <span>&copy; {new Date().getFullYear()} Creemos Capital. All rights reserved.</span>
+    </div>
+  </section>
+</footer>
+
+<style>
+  footer {
+    padding: 2rem 0.1rem;
+    background-color: #1a1a1a;
+    color: white;
+  }
+
+  .footer-content {
+    max-width: 1200px;
+    width: 90%;
+    margin: 0 auto; /* Centra el contenido */
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    gap: 2rem;
+  }
+
+  .logo_idea {
+    width: 25%;
+    display: flex;
+    flex-direction:column;
+    align-items: start;
+    justify-content: start;
+    margin-top: 2rem;
+
+
+    h2, p {
+      margin: 0;
+    }
+
+    h2 {
+      margin-bottom: 0.5rem;
+    }
+
+    img {
+      border-radius: 100px;
+      border: 1px solid #333333;
+      padding: 5px;
+      margin-bottom: 1rem;
+    }
+  }
+
+  .information {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 1rem;
+
+    
+
+    p {
+      font-size: 0.9rem;
+      color: #8C9FB2;
+    }
+
+    span {
+      color: #BFCAD5;
+      font-size: 0.8rem;
+    }
+    
+
+  }
+
+  @media (max-width: 768px) {
+
+    footer {
+      padding: 2rem 0.5rem;
+    }
+
+    .footer-content {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .logo_idea,
+    .information {
+      width: 90%;
+      align-items: center;
+    }
+
+    .information {
+      text-align: start;
+    }
+  }
+</style>
