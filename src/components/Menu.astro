@@ -9,35 +9,35 @@
       </div>
     </li>
     <li><a href="/">Inicio</a></li>
-    <li><a href="/noticias">Noticias</a></li>
+    <li><a href="/materiales">Materiales</a></li>
     <li><a href="/contacto">Contacto</a></li>
   </ul>
 </nav>
 
 <style>
   nav {
-    width: calc(100vh - 300px);
+    max-width: 1200px; /* Ancho máximo para el contenido */
+    width: 800px; /* En pantallas más pequeñas, ocupa un ancho especifico para que se vea bien en todo tamaño de pantallas, en especial las de PC y laptop */
+    margin: 0 auto; /* Centra el nav */
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 0.1rem 2rem;
     background-color: #1a1a1a;
     color: white;
-
     border-radius: 30px;
   }  
 
   
 
   ul {
-    width: 100%;
+    width: 600px;
     display: flex;
     list-style: none;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
-    gap: 2rem;
     margin: 0;
-    padding: 0;
+    padding: 0rem 1rem;
   }
 
   li {
