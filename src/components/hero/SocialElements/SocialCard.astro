@@ -1,0 +1,15 @@
+---
+interface Props {
+    name: string,
+    link: string
+}
+
+const {name, link} = Astro.props;
+---
+
+<article class="flex gap-2 ">
+    <div class="flex justify-center items-center">
+        <slot />
+    </div>
+    <div class="flex flex-col"><span class="text-lg font-medium">{name}</span><a href={link} target="_blank" class="underline text-[var(--secondary-blue-color)]">{link}</a></div>
+</article>
