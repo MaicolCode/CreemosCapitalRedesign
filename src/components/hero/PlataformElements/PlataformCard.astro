@@ -1,0 +1,13 @@
+---
+const { description, name } = Astro.props;
+---
+
+<div
+  class="relative w-[354px] h-[100px] flex justify-center items-center rounded-2xl bg-gradient-to-l from-[var(--primary-gray-color)]/80 to-[var(--secondary-gray-color)]/80"
+>
+  <article class="flex flex-col justify-center items-start">
+    <h1 class="text-lg font-semibold">{name}</h1>
+    <p class="w-64 text-md">{description}</p>
+  </article>
+  <slot />
+</div>
