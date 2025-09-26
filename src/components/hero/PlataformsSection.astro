@@ -1,0 +1,21 @@
+---
+import PlataformCard from "./PlataformElements/PlataformCard.astro";
+---
+<section>
+    <h1 class="text-[80px]  leading-20 font-semibold text-center">Ven y aprende a usar plataformas profesionales</h1>
+    <div class="relative flex justify-center items-center my-15">
+        <img src="/trading_view.png" alt="TradingView">
+        <img src="/Chart_types.png" alt="Chart Types" width="500" height="500" class="absolute left-1/3 bottom-0 transform -translate-x-[240px]">
+        <div class="absolute left-0 bottom-1/6 transform translate-x-[60px]">
+            <PlataformCard description="Plataforma de trading profesional para el aprendizaje" name="TradingView">
+                <img src="/tradingview-logo.png" alt="TradingView" width="80" height="80" class="absolute left-1/2 transform -translate-x-[240px]">
+            </PlataformCard>
+        </div>
+        <div class="absolute right-0 top-1/6 transform translate-x-[10px]">
+            <PlataformCard description="Plataforma de trading profesional para operar" name="MetaTrader">
+                <img src="/metatrader-icon.png" alt="MetaTrader" width="80" height="80" class="absolute left-1/2 transform -translate-x-[240px]">
+            </PlataformCard>
+        </div>
+    </div>
+   
+</section>
