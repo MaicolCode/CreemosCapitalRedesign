@@ -1,0 +1,47 @@
+---
+import { ClientRouter } from "astro:transitions";
+import "@fontsource-variable/instrument-sans";
+import "../styles/global.css";
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <ClientRouter fallback="swap" />
+  </head>
+  <body class="relative bg-black w-dvh md:w-full border flex flex-col items-center">
+	
+    <div
+      class="absolute z-[-2] bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]"
+    >
+    </div><div
+      class="absolute z-[-2] left-0 right-0 top-[-10%] h-[1000px] w-auto rounded-full bg-[radial-gradient(circle_400px_at_50%_300px,#fbfbfb36,#000)]"
+    >
+    </div>
+    
+	<slot />
+  </body>
+</html>
+<style is:global>
+  * {
+    font-family: "Instrument Sans Variable", sans-serif;
+  }
+
+  html,
+  body {
+    margin: 0;
+  }
+
+  
+</style>
