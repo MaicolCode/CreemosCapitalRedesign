@@ -1,0 +1,9 @@
+---
+const { description } = Astro.props;
+---
+
+
+<div class=" relative md:w-[500px] md:h-[450px] w-full h-[450px] flex flex-col justify-start items-center gap-5 py-10 rounded-[30px] overflow-hidden bg-[var(--primary-gray-color)]/70  border-2 border-[var(--third-gray-color)]">
+    <p class="text-[30px] font-semibold w-[400px] text-center leading-8">{description}</p>
+    <slot/>
+</div>
