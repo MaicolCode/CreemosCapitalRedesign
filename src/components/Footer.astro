@@ -1,38 +1,72 @@
---- 
+---
+import WhatsAppIcon from './hero/SocialElements/WhatsAppIcon.astro'
+import EmailIcon from './hero/SocialElements/EmailIcon.astro'
 ---
 
 <footer>
-  <section class="footer-content">
-    <div class="logo_idea">
-      <img src="/CreemosCapitalLogo.png" alt="Logo" width="80" height="80" class="w-[80px] h-[80px] border border-[#333] p-2 mb-2 rounded-full ">
-      <h2>Creemos Capital</h2>
-      <p>Converte tu conocimiento en capital y siempre opera con responsabilidad</p>
+  <section class='footer-content'>
+    <div class='logo_idea'>
+      <img
+        src='/CreemosCapitalLogo.png'
+        alt='Logo'
+        width='90'
+        height='90'
+        class='w-[100px] h-[100px] p-2 mb-2 rounded-full'
+      />
+      <h2 class='text-2xl font-bold'>Creemos Capital</h2>
+      <p>
+        Converte tu conocimiento en capital y siempre opera con responsabilidad
+      </p>
     </div>
-    <div class="information">
+    <div class='information'>
       <article>
-        <h2>
-          Contactanos
-        </h2>
+        <h2 class='text-2xl font-bold'>Contactanos</h2>
+        <div
+          class='py-3 flex gap-2 justify-center md:justify-start md:items-center'
+        >
+          <a
+            href='https://api.whatsapp.com/send/?phone=3153263852&text&type=phone_number&app_absent=0'
+            target='_blank'
+          >
+            <WhatsAppIcon />
+          </a>
+          <a href='/contacto'><EmailIcon /></a>
+        </div>
       </article>
-      <p>El contenido de esta pagina web es exclusivamente con fines educativos e informativos y no debe considerarse como asesoramiento financiero, legal o fiscal. El trading y la inversión en los mercados financieros conllevan un alto nivel de riesgo, incluyendo la posibilidad de perder la totalidad del capital invertido. No es adecuado para todos los inversores, y cada persona debe evaluar su tolerancia al riesgo antes de participar en estos mercados.
-        Creemos Capital no garantiza ningún tipo de resultado o rendimiento futuro, y el desempeño pasado no es indicativo de resultados futuros. Todas las decisiones de inversión y trading son responsabilidad exclusiva del usuario.
-        Recuerda: nunca operes con dinero que no puedas permitirte perder y mantén una gestión de riesgo adecuada en cada operación. El trading no es un esquema de enriquecimiento rápido y requiere educación, disciplina y experiencia. Creemos Capital y sus representantes no se hacen responsables por pérdidas derivadas de la aplicación de la información compartida en esta transmisión.
-        Al continuar viendo esta transmisión, aceptas que eres el único responsable de tus decisiones financieras.</p>
-      <span>&copy; {new Date().getFullYear()} Creemos Capital. All rights reserved.</span>
+      <p>
+        El contenido de esta pagina web es exclusivamente con fines educativos e
+        informativos y no debe considerarse como asesoramiento financiero, legal
+        o fiscal. El trading y la inversión en los mercados financieros
+        conllevan un alto nivel de riesgo, incluyendo la posibilidad de perder
+        la totalidad del capital invertido. No es adecuado para todos los
+        inversores, y cada persona debe evaluar su tolerancia al riesgo antes de
+        participar en estos mercados. Creemos Capital no garantiza ningún tipo
+        de resultado o rendimiento futuro, y el desempeño pasado no es
+        indicativo de resultados futuros. Todas las decisiones de inversión y
+        trading son responsabilidad exclusiva del usuario. Recuerda: nunca
+        operes con dinero que no puedas permitirte perder y mantén una gestión
+        de riesgo adecuada en cada operación. El trading no es un esquema de
+        enriquecimiento rápido y requiere educación, disciplina y experiencia.
+        Creemos Capital y sus representantes no se hacen responsables por
+        pérdidas derivadas de la aplicación de la información compartida en esta
+        transmisión. Al continuar viendo esta transmisión, aceptas que eres el
+        único responsable de tus decisiones financieras.
+      </p>
+      <span>
+        &copy; {new Date().getFullYear()} Creemos Capital. All rights reserved.
+      </span>
     </div>
   </section>
 </footer>
 
 <style>
   footer {
-    
     padding: 2rem 0.1rem;
-    background-color: #1a1a1a;
+    background-color: var(--secondary-gray-color);
     color: white;
   }
 
   .footer-content {
-    max-width: 1200px;
     width: 90%;
     margin: 0 auto; /* Centra el contenido */
     display: flex;
@@ -42,15 +76,14 @@
   }
 
   .logo_idea {
-    width: 25%;
+    width: 30%;
     display: flex;
-    flex-direction:column;
+    flex-direction: column;
     align-items: start;
     justify-content: start;
-    margin-top: 2rem;
 
-
-    h2, p {
+    h2,
+    p {
       margin: 0;
     }
 
@@ -66,23 +99,18 @@
     align-items: start;
     gap: 1rem;
 
-    
-
     p {
       font-size: 0.9rem;
-      color: #8C9FB2;
+      color: #8c9fb2;
     }
 
     span {
-      color: #BFCAD5;
+      color: #bfcad5;
       font-size: 0.8rem;
     }
-    
-
   }
 
   @media (max-width: 768px) {
-
     footer {
       padding: 2rem 0.5rem;
     }
