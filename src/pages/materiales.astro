@@ -1,0 +1,95 @@
+---
+import NewsCard from '../components/materials/NewsCard.astro';
+import YoutubeCard from '../components/materials/YoutubeCard.astro';
+import type { News } from '../env';
+import Layout from '../layouts/Layout.astro';
+
+const technicalNews : Array<News> = [
+  {
+    description: "La incertidumbre se apodera del oro, bitcoin, dólar, crudo e índices",
+    date: "08-07-2025"
+  },
+  {
+    description: "Cómo convertir cada decisión en una lección de éxito",
+    date: "08-07-2025"
+  },
+  {
+    description: "Este error destruye carteras (y Buffett lo evita con una simple regla...)",
+    date: "08-05-2025"
+  },
+  {
+    description: "Los 4 Pasos que transformarán tu forma de decidir",
+    date: "07-31-2025"
+  },
+  {
+    description: "5 Estrategias mentales para blindarse en bolsa",
+    date: "07-29-2025"
+  },
+  {
+    description: "4 habilidades clave para tomar mejores decisiones",
+    date: "07-24-2025"
+  },
+  {
+    description: "El peor enemigo de pensar con claridad",
+    date: "07-22-2025"
+  }
+]
+
+const investmentNews : Array<News> = [
+  {
+    description: "Estudiar trading como loco no te hace rentable (y sí, lo estás haciendo mal)",
+    date: "08-06-2025"
+  },
+  {
+    description: "Mira esto en 4 min y superarás al 90% de los traders",
+    date: "08-04-2025"
+  },
+  {
+    description: "Atento al mes de agosto que podría haber fuertes curvas",
+    date: "08-04-2025"
+  },
+  {
+    description: "Las 5 reglas para invertir mejor",
+    date: "07-28-2025"
+  },
+  {
+    description: "De 16 horas diarias a 3: cómo el trading me devolvió la vida (y la cabeza)",
+    date: "07-30-2025"
+  },
+  {
+    description: "Acciones clave para esta semana en España, México y EE.UU.",
+    date: "08-06-2025"
+  },
+  {
+    description: "Asesorar sobre lo que la élite está comprando: oro físico",
+    date: "07-30-2025"
+  },
+
+]
+---
+
+<Layout title="Noticias">
+  <section class="w-full h-full text-white flex flex-col justify-center items-center gap-10">
+      <div class="w-full h-[300px] flex flex-col justify-center items-center my-10">
+        <h2 class="text-[22px] font-medium w-[500px] text-center">Formate con nuestro material en linea para empezar a hacer <span class="blue-text">trading</span></h2>
+        <p class="text-[var(--seventy-gray-color)] mt-4">Y si quieres saber más acerca de lo que hacemos te invitamos a seguirnos en YouTube</p>
+      </div>
+      <section class="w-full flex flex-col justify-center items-center my-10">
+        <h2 class="text-[22px] font-medium">Comienza y formate con nuestros cursos de trading para principiantes</h2>
+        <p class="text-[var(--seventy-gray-color)] mt-4 text-center w-[900px]">Estos cursos te ayudarán a obtener los conocimientos básicos que te permitirán conocer y tener detalles acerca de como funcionan los mercados y como operarlos</p>
+        <div class="w-full flex justify-center gap-5 mt-4">
+          <YoutubeCard />
+          <YoutubeCard />
+          <YoutubeCard />
+        </div>
+      </section>
+      <section class="w-full flex flex-col justify-center items-center my-10 gap-10">
+        <h2 class="text-[22px] font-medium w-[500px] text-center">Y si quieres saber más informate con las noticias semanales que tenemos para tí</h2>
+        <div class="flex justify-center items-center w-full  gap-5 ">
+          <NewsCard color="bg-gradient-to-b from-[var(--primary-color)] to-[var(--primary-green-color)]" data={technicalNews} title="Analisis técnico" />
+          <NewsCard color="bg-gradient-to-b from-[var(--secondary-color)] to-[var(--secondary-blue-color)]" data={investmentNews} title="Técnicas de inversión" />
+        </div>
+      </section>
+  </section>
+</Layout>
+
