@@ -1,8 +1,13 @@
+---
+const {title, url} = Astro.props;
+---
+
+
 <div class='w-auto md:w-full h-full'>
   <iframe
-    class='w-[500px] h-[400px] md:w-[380px] md:h-[240px] rounded-[20px] shadow-[0_5px_20px_0_var(--third-gray-color)] border border-[var(--secondary-gray-color)]'
-    src='https://www.youtube.com/embed/VcX1bL4lyk0'
-    title='Trading para Novatos - Sesion 1'
+    class='w-[500px] h-[400px] md:w-[380px] md:h-[240px] rounded-[20px] shadow-[0_5px_20px_0_var(--third-gray-color)] border-2 border-[var(--secondary-gray-color)] hover:border-zinc-900 hover:border-2 transition-all duration-200 ease-in-out'
+    src={url}
+    title={title}
     allow='accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture;'
     referrerpolicy='strict-origin-when-cross-origin'
     allowfullscreen
