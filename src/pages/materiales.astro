@@ -1,74 +1,10 @@
 ---
 import NewsCard from '../components/materials/NewsCard.astro'
 import YoutubeCard from '../components/materials/YoutubeCard.astro'
-import type { News } from '../env'
 import Layout from '../layouts/Layout.astro'
-
-const technicalNews: Array<News> = [
-  {
-    description:
-      'La incertidumbre se apodera del oro, bitcoin, dólar, crudo e índices',
-    date: '08-07-2025'
-  },
-  {
-    description: 'Cómo convertir cada decisión en una lección de éxito',
-    date: '08-07-2025'
-  },
-  {
-    description:
-      'Este error destruye carteras (y Buffett lo evita con una simple regla...)',
-    date: '08-05-2025'
-  },
-  {
-    description: 'Los 4 Pasos que transformarán tu forma de decidir',
-    date: '07-31-2025'
-  },
-  {
-    description: '5 Estrategias mentales para blindarse en bolsa',
-    date: '07-29-2025'
-  },
-  {
-    description: '4 habilidades clave para tomar mejores decisiones',
-    date: '07-24-2025'
-  },
-  {
-    description: 'El peor enemigo de pensar con claridad',
-    date: '07-22-2025'
-  }
-]
-
-const investmentNews: Array<News> = [
-  {
-    description:
-      'Estudiar trading como loco no te hace rentable (y sí, lo estás haciendo mal)',
-    date: '08-06-2025'
-  },
-  {
-    description: 'Mira esto en 4 min y superarás al 90% de los traders',
-    date: '08-04-2025'
-  },
-  {
-    description: 'Atento al mes de agosto que podría haber fuertes curvas',
-    date: '08-04-2025'
-  },
-  {
-    description: 'Las 5 reglas para invertir mejor',
-    date: '07-28-2025'
-  },
-  {
-    description:
-      'De 16 horas diarias a 3: cómo el trading me devolvió la vida (y la cabeza)',
-    date: '07-30-2025'
-  },
-  {
-    description: 'Acciones clave para esta semana en España, México y EE.UU.',
-    date: '08-06-2025'
-  },
-  {
-    description: 'Asesorar sobre lo que la élite está comprando: oro físico',
-    date: '07-30-2025'
-  }
-]
+import { technicalNews, investmentNews } from '../data/news.mock'
+import { tradingNovatos } from '../data/urlYT.mock'
+import type { YTUrl } from '../types'
 ---
 
 <Layout title='Noticias'>
@@ -104,9 +40,14 @@ const investmentNews: Array<News> = [
       <div
         class='flex flex-col md:flex-row justify-center items-center md:gap-5 w-full mt-4'
       >
-        <YoutubeCard />
-        <YoutubeCard />
-        <YoutubeCard />
+        {tradingNovatos.map((item: YTUrl) => {
+          return (
+            <YoutubeCard
+              title={item.title}
+              url={item.url}
+            />
+          )
+        })}
       </div>
     </section>
     <section
