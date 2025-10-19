@@ -1,35 +1,23 @@
 ---
-import BaseLayout from './BaseLayout.astro';
-import Menu from '../components/Menu.astro';
-import Footer from '../components/Footer.astro';
+import BaseLayout from "./BaseLayout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
 const { title } = Astro.props;
 ---
+
 <BaseLayout title={title}>
-    <header>
-      <Menu />
-    </header>
-    <main>
-      <slot />
-    </main>
-    <footer>
-      <Footer />
-    </footer>
+  <Header />
+  <main>
+    <slot />
+  </main>
+  <Footer />
 </BaseLayout>
 
 <style>
-	header {
-		position: fixed;
-		width: 100%;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		padding: 10px 0px;
-		z-index: 1000;
-	}
-	main {
-		flex-grow: 1;
-		width: 90%;
-		max-width: 1200px;
-		margin: 0 auto;
-	}
+  main {
+    flex-grow: 1;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
 </style>
