@@ -1,19 +1,46 @@
-<section class="hero-section  flex justify-center items-center">
-    <div class="comunity-info-card md:h-[450px] h-auto w-full  flex md:flex-row flex-col gap-10 justify-center items-center p-10">
+<section class="hero-section flex justify-center items-center">
+    <div
+        class="reveal comunity-info-card md:h-[450px] h-auto w-full flex md:flex-row flex-col gap-10 justify-center items-center p-10 transition-delay-200"
+    >
         <div class="w-[600px] flex justify-center items-center">
-            <img src="/CreemosCapitalLogo.png" alt="Logo" width="350" height="350">
+            <img
+                src="/CreemosCapitalLogo.png"
+                alt="Logo"
+                width="350"
+                height="350"
+            />
         </div>
-        <article class="w-[600px] flex flex-col justify-center items-center p-5 text-center">
-            <p class="w-[600px] my-8 text-xl leading-8">El lugar que tiene como objetivo crear comunidad de forma gratuita; donde miles de traders en alrededor de todo el mundo se conectan en busca de mejorar sus habilidades de trading y alcanzar la rentabilidad.</p>
-            <a href="https://forms.gle/hd5Dx8apjQRekNRb6" target="_blank" class="bg-[var(--secondary-color)] hover:bg-zinc-200 hover:text-black transition-all duration-200 ease-in-out text-white px-10 py-3 rounded-full text-md">Unete y forma parte</a>
+        <article
+            class="w-[600px] flex flex-col justify-center items-center p-5 text-center"
+        >
+            <p class="w-[600px] my-8 text-xl leading-8">
+                El lugar que tiene como objetivo crear comunidad de forma
+                gratuita; donde miles de traders en alrededor de todo el mundo
+                se conectan en busca de mejorar sus habilidades de trading y
+                alcanzar la rentabilidad.
+            </p>
+            <a
+                href="https://forms.gle/hd5Dx8apjQRekNRb6"
+                target="_blank"
+                class="bg-[var(--secondary-color)] hover:bg-zinc-200 hover:text-black transition-all duration-200 ease-in-out text-white px-10 py-3 rounded-full text-md"
+                >Unete y forma parte</a
+            >
         </article>
     </div>
 </section>
 
 <style>
     .comunity-info-card {
-        background: linear-gradient(145deg, var(--primary-gray-color) 0%, var(--secondary-gray-color) 100%);
+        background: linear-gradient(
+            145deg,
+            var(--primary-gray-color) 0%,
+            var(--secondary-gray-color) 100%
+        );
         border: 2px solid var(--third-gray-color);
         border-radius: 50px;
+        box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.5);
+    }
+    .transition-delay-200 {
+        transition-delay: 200ms;
     }
 </style>

@@ -1,76 +1,89 @@
 ---
-import NewsCard from '../components/materials/NewsCard.astro'
-import YoutubeCard from '../components/materials/YoutubeCard.astro'
-import Layout from '../layouts/Layout.astro'
-import { technicalNews, investmentNews } from '../data/news.mock'
-import { tradingNovatos } from '../data/urlYT.mock'
-import type { YTUrl } from '../types'
+import NewsCard from "../components/materials/NewsCard.astro";
+import YoutubeCard from "../components/materials/YoutubeCard.astro";
+import Layout from "../layouts/Layout.astro";
+import { tradingNovatos } from "../data/urlYT.mock";
+import type { YTUrl } from "../types";
+import { getCollection } from "astro:content";
+
+// Fetch news from Hybrid Content Collections
+const allNews = await getCollection("news");
+const technicalNews = allNews
+  .filter((post) => post.data.category === "technical")
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+const investmentNews = allNews
+  .filter((post) => post.data.category === "investment")
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 ---
 
-<Layout title='Noticias'>
+<Layout title="Noticias">
   <section
-    class='w-full h-full text-white flex flex-col justify-center items-center gap-10'
+    class="w-full h-full text-white flex flex-col justify-center items-center gap-10"
   >
     <div
-      class='w-full h-[300px] flex flex-col justify-center items-center my-10'
+      class="reveal w-full h-[300px] flex flex-col justify-center items-center my-10 relative z-10"
     >
-      <h2 class='text-[30px] md:text-[22px] font-medium w-[500px] text-center'>
+      <div
+        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[300px] bg-blue-500/10 rounded-full blur-[80px] -z-10 pointer-events-none"
+      >
+      </div>
+
+      <h2 class="text-[30px] md:text-[22px] font-medium w-[500px] text-center">
         Formate con nuestro material en linea para empezar a hacer <span
-          class='blue-text'
+          class="blue-text"
         >
           trading
         </span>
       </h2>
-      <p class='text-[var(--seventy-gray-color)] mt-4 text-xl'>
+      <p class="text-[var(--seventy-gray-color)] mt-4 text-xl">
         Y si quieres saber más acerca de lo que hacemos te invitamos a seguirnos
         en YouTube
       </p>
     </div>
-    <section class='w-full flex flex-col justify-center items-center my-10'>
-      <h2 class='text-[30px] md:text-[22px] text-center font-medium'>
+    <section
+      class="reveal transition-delay-200 w-full flex flex-col justify-center items-center my-10"
+    >
+      <h2 class="text-[30px] md:text-[22px] text-center font-medium">
         Comienza y formate con nuestros cursos de trading para principiantes
       </h2>
       <p
-        class='text-[var(--seventy-gray-color)] mt-4 text-xl text-center w-[900px]'
+        class="text-[var(--seventy-gray-color)] mt-4 text-xl text-center w-[900px]"
       >
         Estos cursos te ayudarán a obtener los conocimientos básicos que te
         permitirán conocer y tener detalles acerca de como funcionan los
         mercados y como operarlos
       </p>
       <div
-        class='flex flex-col md:flex-row justify-center items-center md:gap-5 w-full mt-4'
+        class="flex flex-col md:flex-row justify-center items-center md:gap-5 w-full mt-4"
       >
-        {tradingNovatos.map((item: YTUrl) => {
-          return (
-            <YoutubeCard
-              title={item.title}
-              url={item.url}
-            />
-          )
-        })}
+        {
+          tradingNovatos.map((item: YTUrl) => {
+            return <YoutubeCard title={item.title} url={item.url} />;
+          })
+        }
       </div>
     </section>
     <section
-      class='w-full flex flex-col justify-center items-center my-10 gap-10'
+      class="reveal transition-delay-300 w-full flex flex-col justify-center items-center my-10 gap-10"
     >
       <h2
-        class='text-[30px] md:text-[22px] font-medium md:w-[500px] text-center'
+        class="text-[30px] md:text-[22px] font-medium md:w-[500px] text-center"
       >
         Y si quieres saber más informate con las noticias semanales que tenemos
         para tí
       </h2>
       <div
-        class='flex flex-col md:flex-row justify-center items-center w-full gap-10 md:gap-5'
+        class="flex flex-col md:flex-row justify-center items-center w-full gap-10 md:gap-5"
       >
         <NewsCard
-          color='bg-gradient-to-b from-[var(--primary-color)] to-[var(--primary-green-color)]'
+          color="bg-gradient-to-b from-[var(--primary-color)] to-[var(--primary-green-color)]"
           data={technicalNews}
-          title='Analisis técnico'
+          title="Analisis técnico"
         />
         <NewsCard
-          color='bg-gradient-to-b from-[var(--secondary-color)] to-[var(--secondary-blue-color)]'
+          color="bg-gradient-to-b from-[var(--secondary-color)] to-[var(--secondary-blue-color)]"
           data={investmentNews}
-          title='Técnicas de inversión'
+          title="Técnicas de inversión"
         />
       </div>
     </section>

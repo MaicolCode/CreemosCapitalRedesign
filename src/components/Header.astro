@@ -1,72 +1,66 @@
-<header>
-  <nav class="text-lg md:text-sm">
-    <ul>
-      <li>
-        <div class="logo">
-          <a href="/">
-            <img
-              src="/CreemosCapitalLogo.png"
-              alt="Logo"
-              width="40"
-              height="40"
-            />
-          </a>
-        </div>
+---
+const pathname = Astro.url.pathname;
 
-        <li><a href="/">Inicio</a></li>
-        <li><a href="/materiales">Materiales</a></li>
-        <li><a href="/contacto">Contacto</a></li>
+const getLinkClass = (path: string) => {
+  // Normalize path by removing trailing slash if it exists (except for root "/")
+  const currentPath =
+    pathname.length > 1 && pathname.endsWith("/")
+      ? pathname.slice(0, -1)
+      : pathname;
+
+  const isActive = currentPath === path;
+  const baseClass =
+    "nav-link px-4 py-2 rounded-full transition-all duration-300 block";
+  const activeClass =
+    "text-white bg-white/10 shadow-[0_0_10px_rgba(255,255,255,0.05)]";
+  const inactiveClass = "text-zinc-300 hover:text-white hover:bg-white/10";
+
+  return `${baseClass} ${isActive ? activeClass : inactiveClass}`;
+};
+---
+
+<header
+  class="fixed top-5 left-0 right-0 z-50 flex justify-center items-center px-4 pointer-events-none"
+>
+  <nav
+    class="pointer-events-auto bg-black/40 backdrop-blur-md border border-white/10 rounded-full px-2 py-2 flex items-center gap-1 shadow-lg shadow-black/20 transition-all duration-300 hover:bg-black/50 hover:border-white/20 hover:shadow-xl"
+  >
+    <!-- Logo -->
+    <a
+      href="/"
+      class="flex items-center justify-center bg-white/5 rounded-full p-1 mr-2 transition-transform hover:scale-105"
+    >
+      <img
+        src="/CreemosCapitalLogo.png"
+        alt="Creemos Capital"
+        width="32"
+        height="32"
+        class="rounded-full"
+      />
+    </a>
+
+    <!-- Navigation Links -->
+    <ul class="flex items-center gap-1 m-0 p-0 list-none text-sm font-medium">
+      <li>
+        <a href="/" class={getLinkClass("/")}> Inicio </a>
+      </li>
+      <li>
+        <a href="/materiales" class={getLinkClass("/materiales")}>
+          Materiales
+        </a>
+      </li>
+      <li>
+        <a href="/contacto" class={getLinkClass("/contacto")}> Contacto </a>
       </li>
     </ul>
+
+    <!-- CTA Button (Optional enhancement for premium feel) -->
+    <a
+      href="https://t.me/creemoscapitaloficial"
+      target="_blank"
+      class="hidden md:block ml-2 px-5 py-2 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white rounded-full text-sm font-semibold hover:brightness-110 hover:shadow-[0_0_15px_rgba(16,185,129,0.4)] transition-all duration-300"
+    >
+      Unirse
+    </a>
   </nav>
 </header>
-
-<style>
-  header {
-    position: fixed;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px 0px;
-    z-index: 1000;
-  }
-
-  nav {
-    max-width: 1200px; /* Ancho máximo para el contenido */
-    width: 800px; /* En pantallas más pequeñas, ocupa un ancho especifico para que se vea bien en todo tamaño de pantallas, en especial las de PC y laptop */
-    margin: 0 auto; /* Centra el nav */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0.1rem 2rem;
-    color: white;
-    border-radius: 30px;
-    backdrop-filter: blur(10px);
-    background-color: rgba(15, 14, 24, 0.726);
-    z-index: 999;
-  }
-
-  ul {
-    width: 600px;
-    display: flex;
-    list-style: none;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0;
-    padding: 0rem 1rem;
-  }
-
-  li {
-    margin-left: 2rem;
-  }
-
-  a {
-    color: white;
-    text-decoration: none;
-  }
-
-  a:hover {
-    text-decoration: underline;
-  }
-</style>

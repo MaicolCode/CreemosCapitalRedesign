@@ -3,20 +3,37 @@ import StrategyCard from "./StrategyElements/StrategyCard.astro";
 ---
 
 <section class="w-full h-auto flex flex-col justify-center items-center -z-1">
-    <h2 class="text-[80px] leading-20 font-semibold text-center">Ven aprende y opera junto a nosotros con nuestra estrategía</h2>
-    <div class="relative my-20 flex justify-center items-center">
-        <img src="/C4_Strategy.png" alt="Estrategia C4 Creemos Capital" width="800" class="rounded-[25px] mask-luminance mask-x-from-white mask-x-from-80% mask-x-to-black mask-y-from-white mask-y-from-80% mask-y-to-black ">
-        <div class="absolute top-0 left-30 transform -translate-x-1/2 -translate-y-1/2 w-auto h-auto">
-            <StrategyCard description="Tendencia principal" step="1"/>
+    <h2 class="reveal text-[80px] leading-20 font-semibold text-center">
+        Ven aprende y opera junto a nosotros con nuestra estrategía
+    </h2>
+    <div
+        class="reveal relative my-20 flex justify-center items-center transition-delay-200"
+    >
+        <img
+            src="/C4_Strategy.png"
+            alt="Estrategia C4 Creemos Capital"
+            width="800"
+            class="rounded-[25px] mask-luminance mask-x-from-white mask-x-from-80% mask-x-to-black mask-y-from-white mask-y-from-80% mask-y-to-black"
+        />
+        <div
+            class="absolute top-0 left-30 transform -translate-x-1/2 -translate-y-1/2 w-auto h-auto"
+        >
+            <StrategyCard description="Tendencia principal" step="1" />
         </div>
-        <div class="absolute top-0 -right-30 transform -translate-x-1/2 -translate-y-1/2 w-auto h-auto">
-            <StrategyCard description="Soportes o resistencias" step="2"/>
+        <div
+            class="absolute top-0 -right-30 transform -translate-x-1/2 -translate-y-1/2 w-auto h-auto"
+        >
+            <StrategyCard description="Soportes o resistencias" step="2" />
         </div>
-        <div class="absolute bottom-0 left-30 transform -translate-x-1/2 -translate-y-1/2 w-auto h-auto">
-            <StrategyCard description="Acción del precio" step="3"/>
+        <div
+            class="absolute bottom-0 left-30 transform -translate-x-1/2 -translate-y-1/2 w-auto h-auto"
+        >
+            <StrategyCard description="Acción del precio" step="3" />
         </div>
-        <div class="absolute bottom-0 -right-30 transform -translate-x-1/2 -translate-y-1/2 w-auto h-auto">
-            <StrategyCard description="Volumen de mercado" step="4"/>
+        <div
+            class="absolute bottom-0 -right-30 transform -translate-x-1/2 -translate-y-1/2 w-auto h-auto"
+        >
+            <StrategyCard description="Volumen de mercado" step="4" />
         </div>
     </div>
 </section>

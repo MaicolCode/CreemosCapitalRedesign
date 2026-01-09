@@ -1,12 +1,40 @@
-<div class="hero-section flex flex-col justify-center items-center gap-10 text-center">
-    <h1 class="text-h1 leading-20 font-semibold m-0">Convierte tu conocimiento en <span class="blue-text">capital</span></h1>
-    <p class="w-[700px] text-lg">Unete a la mejor comunidad de traders en la que el aprendizaje y crecimiento continuo es en compañia.</p>
+<div
+    class="hero-section flex flex-col justify-center items-center gap-10 text-center relative z-10"
+>
+    <!-- Premium Glow Effect -->
+    <div
+        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-emerald-500/10 rounded-full blur-[100px] -z-10 pointer-events-none"
+    >
+    </div>
+
+    <h1
+        class="reveal text-h1 leading-20 font-semibold m-0 transition-delay-100"
+    >
+        Convierte tu conocimiento en <span class="blue-text">capital</span>
+    </h1>
+    <p class="reveal w-[700px] text-lg text-gray-300 transition-delay-300">
+        Unete a la mejor comunidad de traders en la que el aprendizaje y
+        crecimiento continuo es en compañia.
+    </p>
 </div>
 
 <style>
     .blue-text {
-        background-image: linear-gradient(to right, var(--primary-color), var(--secondary-color)); 
+        background-image: linear-gradient(
+            to right,
+            var(--primary-color),
+            var(--secondary-color)
+        );
         -webkit-background-clip: text;
+        background-clip: text;
         -webkit-text-fill-color: transparent;
+    }
+
+    /* Reveal Delays */
+    .transition-delay-100 {
+        transition-delay: 100ms;
+    }
+    .transition-delay-300 {
+        transition-delay: 300ms;
     }
 </style>

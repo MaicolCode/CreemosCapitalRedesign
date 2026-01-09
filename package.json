@@ -9,8 +9,15 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/react": "^4.4.2",
     "@fontsource-variable/fredoka": "^5.2.8",
     "@fontsource-variable/instrument-sans": "^5.2.8",
-    "astro": "^5.13.7"
+    "@keystatic/astro": "^5.0.6",
+    "@keystatic/core": "^0.5.48",
+    "@tailwindcss/vite": "^4.1.13",
+    "astro": "^5.13.7",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3",
+    "tailwindcss": "^4.1.13"
   }
 }

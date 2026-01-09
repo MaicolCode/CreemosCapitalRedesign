@@ -1,0 +1,178 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+
+export async function getStaticPaths() {
+    const posts = await getCollection("news");
+    // Only generate pages for posts that DON'T have an external URL
+    const internalPosts = posts.filter((post) => !post.data.externalUrl);
+
+    return internalPosts.map((post) => ({
+        params: { slug: post.slug },
+        props: post,
+    }));
+}
+
+const post = Astro.props;
+const { Content } = await post.render();
+---
+
+<Layout title={post.data.title}>
+    <div class="max-w-4xl mx-auto px-4 py-20 relative">
+        <!-- Background Glow -->
+        <div
+            class="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[100px] -z-10 pointer-events-none"
+        >
+        </div>
+
+        <!-- Back Button -->
+        <a
+            href="/materiales"
+            class="inline-flex items-center text-zinc-400 hover:text-white mb-8 transition-colors group"
+        >
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5 mr-2 group-hover:-translate-x-1 transition-transform"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+            >
+                <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+            </svg>
+            Volver a materiales
+        </a>
+
+        <article class="prose prose-invert prose-lg max-w-none">
+            <!-- Header -->
+            <header class="mb-10 text-center">
+                <div class="flex justify-center gap-2 mb-6">
+                    <span
+                        class="px-3 py-1 rounded-full text-xs font-medium bg-white/10 text-white uppercase tracking-wider"
+                    >
+                        {
+                            post.data.category === "technical"
+                                ? "Análisis Técnico"
+                                : "Inversión"
+                        }
+                    </span>
+                </div>
+                <h1
+                    class="text-4xl md:text-5xl font-bold mb-6 leading-tight blue-green-text tracking-tight"
+                >
+                    {post.data.title}
+                </h1>
+                <div
+                    class="flex items-center justify-center gap-4 text-zinc-400 text-sm"
+                >
+                    <span class="flex items-center">
+                        <svg
+                            class="w-4 h-4 mr-2"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                            ></path>
+                        </svg>
+                        {
+                            post.data.pubDate.toLocaleDateString("es-ES", {
+                                year: "numeric",
+                                month: "long",
+                                day: "numeric",
+                            })
+                        }
+                    </span>
+                    <span>•</span>
+                    <span class="flex items-center">
+                        <svg
+                            class="w-4 h-4 mr-2"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                            ></path>
+                        </svg>
+                        {post.data.author}
+                    </span>
+                </div>
+            </header>
+
+            <!-- Hero Image -->
+            {
+                post.data.heroImage && (
+                    <div class="rounded-3xl overflow-hidden mb-12 shadow-2xl border border-white/5">
+                        <img
+                            src={post.data.heroImage}
+                            alt={post.data.title}
+                            class="w-full h-auto object-cover"
+                        />
+                    </div>
+                )
+            }
+
+            <!-- Content -->
+            <div
+                class="bg-zinc-900/30 p-8 md:p-12 rounded-3xl border border-white/5 backdrop-blur-sm"
+            >
+                <Content />
+            </div>
+        </article>
+    </div>
+</Layout>
+
+<style>
+    /* Custom Prose Styles for consistency with design system */
+    :global(.prose h1),
+    :global(.prose h2),
+    :global(.prose h3) {
+        color: white;
+        font-weight: 600;
+    }
+    :global(.prose h2) {
+        font-size: 1.8rem;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        border-left: 4px solid var(--primary-color);
+        padding-left: 1rem;
+    }
+    :global(.prose p) {
+        color: #d1d5db;
+        line-height: 1.8;
+        margin-bottom: 1.5rem;
+    }
+    :global(.prose strong) {
+        color: var(--primary-green-color);
+    }
+    :global(.prose ul) {
+        list-style-type: disc;
+        padding-left: 1.5rem;
+        color: #d1d5db;
+    }
+    :global(.prose li) {
+        margin-bottom: 0.5rem;
+    }
+    :global(.prose blockquote) {
+        border-left-color: var(--secondary-color);
+        background: rgba(255, 255, 255, 0.05);
+        padding: 1rem 1.5rem;
+        border-radius: 0 10px 10px 0;
+        font-style: italic;
+    }
+    :global(.prose img) {
+        border-radius: 1rem;
+        box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+    }
+</style>

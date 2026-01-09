@@ -1,0 +1,22 @@
+---
+import { makeApp } from "@keystatic/astro/ui";
+import config from "../../../keystatic.config";
+
+export const prerender = false;
+
+const { params } = Astro;
+---
+
+<div id="keystatic-root" style="height: 100vh;"></div>
+
+<script>
+    import { makeApp } from "@keystatic/astro/ui";
+    import config from "../../../keystatic.config";
+
+    makeApp({
+        config,
+        ui: {
+            brand: { name: "Creemos Capital Admin" },
+        },
+    });
+</script>
